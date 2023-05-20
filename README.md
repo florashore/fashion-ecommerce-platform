@@ -1,12 +1,15 @@
 # fashion-e-commerce-app
 
 Potential Brand Names:
-- Wildfire
-- Wildflowers
-- Huntington Fashion
-- Hampton
-- Hamptons
-- Hampton Apparel
-- Night Life Apparel
+
 - Night Life
-- Night Life Fashion Co.
+
+# How it's Made
+
+**Tech Used:** React, Vite, TypeScript, HTML, CSS
+
+Deployed using Docker to AWS Lamda (https://aws.amazon.com/free/webapps/)
+
+# Resources
+
+- https://tailwindui.com/components/preview
