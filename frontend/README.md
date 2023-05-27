@@ -39,6 +39,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 Deployed using Docker to AWS Lamda (https://aws.amazon.com/free/webapps/)
 
+Its made to be production ready. Research how to make it production ready.
+
 # Resources
 
 - https://tailwindui.com/components/preview
