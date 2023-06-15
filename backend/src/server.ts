@@ -20,6 +20,9 @@ import HttpStatusCodes from '@src/constants/HttpStatusCodes';
 import { NodeEnvs } from '@src/constants/misc';
 import { RouteError } from '@src/other/classes';
 
+import bodyParser from 'body-parser';
+
+import { getUsers } from '@src/repos/queries';
 
 // **** Variables **** //
 
@@ -32,6 +35,14 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser(EnvVars.CookieProps.Secret));
+
+// to handle json and urlencoded request bodies
+app.use(bodyParser.json())
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+)
 
 // Show routes called in console during development
 if (EnvVars.NodeEnv === NodeEnvs.Dev) {
@@ -85,6 +96,11 @@ app.get('/users', (_: Request, res: Response) => {
   return res.sendFile('users.html', { root: viewsDir });
 });
 
+app.get('/test', (request, response) => {
+  response.json({ info: 'Node.js, Express, and Postgres API' })
+})
+
+app.get('/userss', getUsers)
 
 // **** Export default **** //
 
