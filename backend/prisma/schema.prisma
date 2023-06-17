@@ -13,6 +13,12 @@ model users {
   email String? @db.VarChar(30)
 }
 
+model Item {
+  id      Int     @id @default(autoincrement())
+  name    String  @db.VarChar(255)
+  price   Decimal     
+}
+
 model Post {
   id        Int      @id @default(autoincrement())
   title     String   @db.VarChar(255)
