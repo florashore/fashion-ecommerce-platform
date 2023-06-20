@@ -1,12 +1,10 @@
-# fashion-e-commerce-app
+# ecommerce-starter
 
-Potential Brand Names:
-
-- Night Life
+A free, easy-to-use e-commerce site template that can be used to sell products and services online.
 
 # How it's Made
 
-**Tech Used:** React, Vite, TypeScript, HTML, CSS
+**Tech Used:** React, TailwindCSS, ExpressJS, NodeJS, TypeScript, HTML, CSS
 
 Deployed using Docker to AWS Lamda (https://aws.amazon.com/free/webapps/)
 
