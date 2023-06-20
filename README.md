@@ -1,6 +1,6 @@
 # ecommerce-starter
 
-A free, easy-to-use e-commerce site template that can be used to sell products and services online.
+A free, easy-to-use e-commerce site template that you can use to sell your products or services online.
 
 # How it's Made
 
