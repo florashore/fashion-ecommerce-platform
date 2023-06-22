@@ -28,10 +28,11 @@ async function main() {
   //   },
   // })
 
+  /*
   const post = await prisma.post.update({
     where: { id: 1 },
     data: { published: true },})
-
+*/
   const allUsers = await prisma.user.findMany({
     include: {
       posts: true, 
@@ -39,7 +40,7 @@ async function main() {
     }
   })
   // console.log(allUsers, { depth: null})
-  console.log(post)
+  // console.log(post)
 }
 
 main()

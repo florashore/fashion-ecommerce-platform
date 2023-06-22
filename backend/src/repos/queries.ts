@@ -23,17 +23,17 @@ const getUsers = (request: any, response: any) => {
   })
 }
 
-const postUser = (request: any, response: any) => {
-  pool.query('INSERT INTO USERS (name, email) VALUES ($1, $2) RETURNING *'),
-  [name, email],
-  (error: any, results: any) => {
-    if(error) {
-      throw error
-    }
+// const postUser = (request: any, response: any) => {
+//   pool.query('INSERT INTO USERS (name, email) VALUES ($1, $2) RETURNING *'),
+//   [name, email],
+//   (error: any, results: any) => {
+//     if(error) {
+//       throw error
+//     }
 
-    response.status(201).send(`Created user with id: ${results.rows[0].id}`)
-  }
-}
+//     response.status(201).send(`Created user with id: ${results.rows[0].id}`)
+//   }
+// }
 
 // const updateUser = (request: any, response: any) => {
 //   pool.query('UPDATE USER SET name = $1, email = $2 WHERE id')
