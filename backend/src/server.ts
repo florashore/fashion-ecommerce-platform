@@ -8,11 +8,15 @@ import path from 'path';
 import helmet from 'helmet';
 import express, { Request, Response, NextFunction } from 'express';
 import logger from 'jet-logger';
+import cors from 'cors';
 
 import 'express-async-errors';
 
 import BaseRouter from '@src/routes/api';
 import Paths from '@src/routes/constants/Paths';
+import productsRouter from '@src/routes/products';
+import cartRouter from '@src/routes/cart';
+import contentRouter from '@src/routes/content';
 
 import EnvVars from '@src/constants/EnvVars';
 import HttpStatusCodes from '@src/constants/HttpStatusCodes';
@@ -31,9 +35,17 @@ const app = express();
 
 // **** Setup **** //
 
+// Enable CORS for all routes
+app.use(cors({
+  origin: '*', // Allow all origins - configure this based on your needs
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
 // Basic middleware
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser(EnvVars.CookieProps.Secret));
 
 // to handle json and urlencoded request bodies
@@ -56,6 +68,11 @@ if (EnvVars.NodeEnv === NodeEnvs.Production) {
 
 // Add APIs, must be after middleware
 app.use(Paths.Base, BaseRouter);
+
+// Add e-commerce API routes
+app.use('/api/products', productsRouter);
+app.use('/api/cart', cartRouter);
+app.use('/api/content', contentRouter);
 
 // Add error handler
 app.use((
